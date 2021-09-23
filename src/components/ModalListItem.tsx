@@ -22,6 +22,7 @@ function ModalListItem({ content }: any) {
       axios.get(url).then((res) => {
         content.weatherData = res.data;
         content.bookmarked = false;
+        content.selected = false;
         // dispatch function
         dispatch(hideModal());
         dispatch(addToList(content));

@@ -30,6 +30,7 @@ function Home() {
               <CityCard
                 key={data.id}
                 city={data.city}
+                cityId={data.id}
                 bookmarked={data.bookmarked}
                 weatherData={data.weatherData}
               ></CityCard>

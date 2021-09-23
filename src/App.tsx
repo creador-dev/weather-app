@@ -8,9 +8,6 @@ import Cities from "./pages/Cities";
 // import header
 import Header from "./components/Header";
 
-// import logo from "./logo.svg";
-// import { Counter } from "./features/counter/Counter";
-
 function App() {
   return (
     <div className="App">

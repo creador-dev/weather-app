@@ -30,7 +30,6 @@ function CityModal() {
 
   const searchCity = (e: any) => {
     e.preventDefault();
-    // console.log(searchInputRef.current.value);
     setFilteredCityArray(
       cityArray.filter((item: citySchema) => {
         return (
@@ -66,7 +65,7 @@ function CityModal() {
           {filteredCityArray.length ? (
             <div>
               {filteredCityArray.map((data: citySchema) => {
-                return <ModalListItem content={data} />;
+                return <ModalListItem key={data.id} content={data} />;
               })}
             </div>
           ) : (
