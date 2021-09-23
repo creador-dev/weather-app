@@ -17,6 +17,8 @@ export const citiesSlice = createSlice({
   initialState,
   reducers: {
     addToList: (state: any, action) => {
+      action.payload.bookmarked = false;
+      action.payload.selected = false;
       state.selectedCities = [...state.selectedCities, action.payload];
     },
     removeFromBookmarks: (state: any, action) => {
@@ -39,13 +41,14 @@ export const citiesSlice = createSlice({
     },
     updateSelectedCity: (state: any, action) => {
       const objIndex = state.selectedCities.findIndex(
-        (obj: any) => obj.id === action.payload
+        (obj: any) => obj.id === action.payload.id
       );
       state.selectedCities = state.selectedCities.map((data: any) => ({
         ...data,
         selected: false,
       }));
       state.selectedCities[objIndex].selected = true;
+      state.selectedCities[objIndex].weatherData = action.payload.weatherData;
     },
     addWeatherInfoOfCity: (state: any, action) => {
       state.weatherInfoOfCity = action.payload;

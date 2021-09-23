@@ -1,8 +1,10 @@
+/* eslint-disable react/style-prop-object */
 import { useDispatch } from "react-redux";
 import {
   addToBookmarks,
   removeFromBookmarks,
 } from "../features/cities/citiesSlice";
+import BookmarkIcon from "../icons/BookmarkIcon";
 
 interface bookmarkSchema {
   bookmarked: Boolean;
@@ -20,7 +22,15 @@ function BookmarkButton({ bookmarked, cityId }: bookmarkSchema) {
     }
   };
 
-  return <button onClick={cityBookmark}>Bookmark</button>;
+  return (
+    <button
+      className={bookmarked ? "p-2.5 active" : "p-2.5"}
+      onClick={cityBookmark}
+      aria-label="Bookmark"
+    >
+      <BookmarkIcon />
+    </button>
+  );
 }
 
 export default BookmarkButton;

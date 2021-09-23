@@ -1,13 +1,32 @@
-import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { ThunkAction, Action } from "@reduxjs/toolkit";
 import modalReducer from "../features/modal/modalSlice";
 import citiesReducer from "../features/cities/citiesSlice";
 
-export const store = configureStore({
-  reducer: {
-    modal: modalReducer,
-    cities: citiesReducer,
-  },
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { persistStore, persistReducer } from "redux-persist"; // imports from redux-persist
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+
+const rootReducer = combineReducers({
+  modal: modalReducer,
+  cities: citiesReducer,
 });
+
+const persistConfig = {
+  // configuration object for redux-persist
+  key: "root",
+  storage, // define which storage to use
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer); // create a persisted reducer
+
+const store = createStore(
+  persistedReducer, // pass the persisted reducer instead of rootReducer to createStore
+  applyMiddleware() // add any middlewares here
+);
+
+const persistor = persistStore(store); // used to create the persisted store, persistor will be used in the next step
+
+export { store, persistor };
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

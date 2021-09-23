@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { allSelectedCities } from "../features/cities/citiesSlice";
 import { showModal } from "../features/modal/modalSlice";
+import AddIcon from "../icons/AddIcon";
 import CityItem from "./CityItem";
 
 function ListOfCities() {
@@ -13,17 +14,26 @@ function ListOfCities() {
   };
 
   return (
-    <div className="p-2">
-      <div className="flex justify-between">
-        <h3>Cities</h3>
-        <button onClick={openModal}>Add city</button>
+    <>
+      <div className="flex justify-between items-center pb-3 border-b mb-6">
+        <h2 className="text-2xl">Cities</h2>
+        <button
+          className="bg-gray-50 p-3 transition text-sm rounded-sm hover:bg-yellow-100"
+          onClick={openModal}
+        >
+          <AddIcon />
+        </button>
       </div>
-      <div>
-        {cities.map((data: any) => {
-          return <CityItem key={data.id} data={data} />;
-        })}
-      </div>
-    </div>
+      {cities.length ? (
+        <div>
+          {cities.map((data: any) => {
+            return <CityItem key={data.id} data={data} />;
+          })}
+        </div>
+      ) : (
+        <h2 className="text-2xl text-center text-gray-300">No city added</h2>
+      )}
+    </>
   );
 }
 

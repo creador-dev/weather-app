@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { hideModal } from "../features/modal/modalSlice";
 import { addToList, allSelectedCities } from "../features/cities/citiesSlice";
+import AddIcon from "../icons/AddIcon";
 
 function ModalListItem({ content }: any) {
   const dispatch = useDispatch();
@@ -17,12 +18,10 @@ function ModalListItem({ content }: any) {
 
     if (!cityExistInArray) {
       // open weather api to get weather data
-      const loc = content.city;
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}`;
+      const loc = content.location;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}&units=metric`;
       axios.get(url).then((res) => {
         content.weatherData = res.data;
-        content.bookmarked = false;
-        content.selected = false;
         // dispatch function
         dispatch(hideModal());
         dispatch(addToList(content));
@@ -35,9 +34,10 @@ function ModalListItem({ content }: any) {
   return (
     <button
       onClick={addCityToList}
-      className="block text-left w-full py-3 cursor-pointer"
+      className="flex justify-between text-left w-full p-3 my-3 rounded-md cursor-pointer border hover:bg-gray-200"
     >
-      {content.city}
+      <span>{content.city}</span>
+      <AddIcon />
     </button>
   );
 }

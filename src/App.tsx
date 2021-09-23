@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Header />
         <CityModal></CityModal>
-        <div className="ml-32 mr-16 pt-8">
+        <div className="ml-32 mr-16 pb-16 max-w-screen-xl">
           <Switch>
             <Route exact path="/">
               <Home />

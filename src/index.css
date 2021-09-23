@@ -2,3 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .h-524 {
+    height: 524px;
+  }
+
+  .active svg {
+    fill: yellow;
+  }
+}
