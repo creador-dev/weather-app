@@ -3,23 +3,17 @@ import {
   addWeatherInfoOfCity,
   updateSelectedCity,
 } from "../features/cities/citiesSlice";
-import axios from "axios";
 
 function CityItem({ data }: any) {
   const dispatch = useDispatch();
 
-  // open weather api key
-  const apiKey = "d4b9fedc669894ea03bdbbc9a08abd68";
+  // // open weather api key
+  // const apiKey = "d4b9fedc669894ea03bdbbc9a08abd68";
   //   on click of city show weather data
   const showWeatherData = () => {
-    // open weather api to get weather data
-    const loc = data.location;
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}&units=metric`;
-    axios.get(url).then((res) => {
-      const content = { ...data, selected: true, weatherData: res.data };
-      dispatch(updateSelectedCity(content));
-      dispatch(addWeatherInfoOfCity(content));
-    });
+    const content = { ...data, selected: true };
+    dispatch(updateSelectedCity(content));
+    dispatch(addWeatherInfoOfCity(content));
   };
 
   return (

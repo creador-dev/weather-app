@@ -3,6 +3,7 @@ import { weatherInfoOfCity } from "../features/cities/citiesSlice";
 import BookmarkButton from "./BookmarkButton";
 import MapLocation from "./MapLocation";
 import WeatherData from "./WeatherData";
+import UpdateWeather from "./UpdateWeather";
 
 function WeatherInfoCard() {
   const data = useSelector(weatherInfoOfCity);
@@ -15,7 +16,10 @@ function WeatherInfoCard() {
         <>
           <div className="flex justify-between items-center pb-3 border-b mb-6">
             <h2 className="text-2xl">{data.city}</h2>
-            <BookmarkButton bookmarked={data.bookmarked} cityId={data.id} />
+            <div>
+              <UpdateWeather data={data} />
+              <BookmarkButton bookmarked={data.bookmarked} cityId={data.id} />
+            </div>
           </div>
           <div className="grid grid-cols-4 gap-4 text-sm pb-3 border-b mb-4">
             <WeatherData data={data.weatherData} />

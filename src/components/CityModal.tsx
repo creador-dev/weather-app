@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { currentStatus, hideModal } from "../features/modal/modalSlice";
 import CloseIcon from "../icons/CloseIcon";
+import SearchIcon from "../icons/SearchIcon";
 import ModalListItem from "./ModalListItem";
 
 interface citySchema {
@@ -57,9 +58,12 @@ function CityModal() {
               <CloseIcon />
             </button>
           </div>
-          <div className="mt-4 pb-4 border-b-2">
+          <div className="relative mt-4 pb-4 border-b-2">
+            <span className="absolute top-2.5 left-2">
+              <SearchIcon />
+            </span>
             <input
-              className="border rounded-md shadow-lg outline-none w-full p-2"
+              className="border rounded-md shadow-lg outline-none w-full pl-8 p-2"
               placeholder="Search city"
               type="search"
               name="search cities"

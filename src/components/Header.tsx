@@ -10,6 +10,7 @@ function Header(): JSX.Element {
         activeClassName="active"
         exact
         to="/"
+        title="Home"
       >
         <HomeIcon />
       </NavLink>
@@ -17,6 +18,7 @@ function Header(): JSX.Element {
         className="block p-5 text-xs hover:bg-yellow-100 border-b"
         activeClassName="active"
         to="/cities"
+        title="Cities"
       >
         <GlobeIcon />
       </NavLink>

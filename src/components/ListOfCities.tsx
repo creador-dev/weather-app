@@ -20,6 +20,7 @@ function ListOfCities() {
         <button
           className="bg-gray-50 p-3 transition text-sm rounded-sm hover:bg-yellow-100"
           onClick={openModal}
+          title="Add city"
         >
           <AddIcon />
         </button>

@@ -20,8 +20,9 @@ function Home() {
         <button
           className="bg-gray-50 p-3 px-6 transition text-sm rounded-sm hover:bg-yellow-100"
           onClick={openModal}
+          title="Add new city"
         >
-          Add new City
+          Add new city
           <span className="ml-1">
             <AddIcon />
           </span>

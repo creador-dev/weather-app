@@ -27,6 +27,7 @@ function BookmarkButton({ bookmarked, cityId }: bookmarkSchema) {
       className={bookmarked ? "p-2.5 active" : "p-2.5"}
       onClick={cityBookmark}
       aria-label="Bookmark"
+      title={bookmarked ? "Remove from favorite" : "Add to favorite"}
     >
       <BookmarkIcon />
     </button>
