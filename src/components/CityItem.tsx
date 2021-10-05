@@ -8,7 +8,7 @@ function CityItem({ data }: any) {
   const dispatch = useDispatch();
 
   // // open weather api key
-  // const apiKey = "d4b9fedc669894ea03bdbbc9a08abd68";
+  // const apiKey = "YOUR_API_KEY";
   //   on click of city show weather data
   const showWeatherData = () => {
     const content = { ...data, selected: true };

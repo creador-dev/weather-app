@@ -8,7 +8,7 @@ function ModalListItem({ content }: any) {
   const dispatch = useDispatch();
   const currentCitiesList = useSelector(allSelectedCities);
 
-  const apiKey = "d4b9fedc669894ea03bdbbc9a08abd68";
+  const apiKey = "YOUR_API_KEY";
 
   //   add city to list on click
   const addCityToList = () => {

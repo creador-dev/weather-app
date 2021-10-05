@@ -14,7 +14,7 @@ function UpdateWeather({ data }: updateSchema) {
   const dispatch = useDispatch();
 
   // open weather api key
-  const apiKey = "d4b9fedc669894ea03bdbbc9a08abd68";
+  const apiKey = "YOUR_API_KEY";
 
   const UpdateWeather = () => {
     // open weather api to get weather data
